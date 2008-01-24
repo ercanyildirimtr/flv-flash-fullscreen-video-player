@@ -1,0 +1,57 @@
+body {
+	font: normal 100.01%/1.4 'trebuchet ms', arial, verdana, sans-serif;
+	color: #111;
+	text-align: center; /*centering IE*/
+	background: #66a0bd;
+}
+
+div#wrap {
+	margin: 0 auto;
+	padding: 25px;
+	width: 60%;
+	text-align: left;/*re-align contents due to IE centering in body*/
+	font-size: 85%;
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+}
+h1 {
+	color: #005064;
+}
+h2 {
+	color: #2c8cbd;
+}
+h3 {
+	color: #df0758	;
+}
+
+
+div#footnotes {
+	margin-top: 10px;
+	font-size: 90%;
+	color: #777;
+	border-top: 1px solid #ddd;
+}
+
+
+a {
+	color: #df0758;
+}
+
+table {
+	border: thin;
+
+}
+
+td {
+	text-align: center;
+}
+
+div.note {
+	padding: 15px;
+	padding-right: 100px;
+	background: #f2f9fc url(note.png) 98% 15px no-repeat;
+	border: 1px solid #ddd;
+	margin-bottom: 30px;
+}
