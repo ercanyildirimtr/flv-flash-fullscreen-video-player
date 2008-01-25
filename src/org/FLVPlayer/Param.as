@@ -187,6 +187,27 @@ package org.FLVPlayer {
 		private var _preRoll:String;			// name of the preroll file
 		
 		
+		
+		/**
+		* 
+		* URL of the preloader file
+		* 
+		* @default 
+		*
+		*/					
+		private var _preloader:String;
+		
+	
+		/**
+		* 
+		* URL of the buttonoverlay file
+		* 
+		* @default 
+		*
+		*/					
+		private var _buttonOverlay:String;
+		
+		
 		private var _postRoll:String;			// name of the postroll file
 		private var _captions:String;			// name of the captionsf file
 			
@@ -242,7 +263,11 @@ package org.FLVPlayer {
 				postRoll = base.loaderInfo.parameters.postroll;
 				captions = base.loaderInfo.parameters.captions;
 				
-
+				// preloader url, default "preloader.swf"
+				preloader = base.loaderInfo.parameters.preloader;
+				
+				// buttonOverlay url, default "buttonOverlay.swf"
+				buttonOverlay = base.loaderInfo.parameters.buttonoverlay;
 				
 				//configFile = base.loaderInfo.parameters.configfile;
 				
@@ -550,6 +575,51 @@ package org.FLVPlayer {
 			}	
 			
 	
+	
+			/**
+			* set the filename of the preloader file (swf)
+			* @param  arg      String
+			*	
+			* @default String	"preloader.swf"
+			*/
+
+			public function set preloader( arg:String ) : void { 
+				
+				if ((arg != null) && (arg != "")) {
+					_preloader = playerPath + arg; 
+				}
+				else {
+					_preloader = playerPath + "preloader.swf";
+				}
+			}
+			
+			public function get preloader() : String { 
+				return _preloader; 
+			}
+			
+			
+
+			/**
+			* set the filename of the buttonoverlay file (swf)
+			* @param  arg      String
+			*	
+			*	*@default String	"buttonOverlay.swf"
+			*/
+
+			public function set buttonOverlay( arg:String ) : void { 
+		
+				if ((arg != null) && (arg != "")) {
+					_buttonOverlay = playerPath + arg; 
+				}
+				else {
+					_buttonOverlay = playerPath + "buttonOverlay.swf";
+				}
+			}
+			
+	
+			public function get buttonOverlay() : String { 
+				return _buttonOverlay; 
+			}
 	
 	
 	
