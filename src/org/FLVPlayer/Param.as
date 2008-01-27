@@ -14,10 +14,12 @@ package org.FLVPlayer {
 	import flash.display.MovieClip;
 	import flash.display.DisplayObject;	
 	
-/**
-* The Param class handles the input parameteres from the URL/HTML/SWFObject
-* It also checks the parameters and sets default values 
-*/
+	/**
+	* The Param class handles the input parameteres from the URL/HTML/SWFObject
+	* It also checks the parameters and sets default values 
+	*	
+	*	@version 1.9.1
+	*/
 	
 	public class Param {
 		
@@ -70,7 +72,7 @@ package org.FLVPlayer {
 		* 
 		* @example 0xFF0000
 		*
-		* @default 0x555555
+		* @default DEFAULT_SKIN_COLOR
 		*/	
 		private var _skinColor:uint;
 		
@@ -179,7 +181,7 @@ package org.FLVPlayer {
 		
 		/**
 		* 
-		* tbd
+		* preroll file
 		* 
 		* @default 
 		*
@@ -208,19 +210,72 @@ package org.FLVPlayer {
 		private var _buttonOverlay:String;
 		
 		
-		private var _postRoll:String;			// name of the postroll file
+		/**
+		* 
+		* captions
+		* 
+		*
+		*/
 		private var _captions:String;			// name of the captionsf file
-			
-		private var _loop:Boolean;				// loop video?
 
+
+		/**
+		* 
+		* captions
+		* 
+		*
+		*/
+		private var _loop:Boolean;
+
+		// currently not used:
+		private var _postRoll:String;
+
+		/**
+		* 
+		* Constants
+		* 
+		*
+		*/
+		private static var DEFAULT_AUTO_PLAY:Boolean = false;
+		private static var DEFAULT_AUTO_SCALE:Boolean = true;	
+		private static var DEFAULT_BUTTON_OVERLAY_FILENAME:String = "buttonOverlay.swf";
+		private static var DEFAULT_CONTENT_PATH:String = "";
+		private static var DEFAULT_LOOP:Boolean = false;	
+		private static var DEFAULT_PLAYER_PATH:String = "";		
+		private static var DEFAULT_PRELOADER_FILENAME:String = "preloader.swf";
+		private static var DEFAULT_PREVIEW_FILENAME:String = "defaultpreview.jpg";
+		private static var DEFAULT_SKIN_COLOR:uint = 0x555555;
+		private static var DEFAULT_SKIN_FILENAME:String = "defaultskin.swf";
+		private static var DEFAULT_SKIN_SCALE_MAXIMUM:Number = 4.5;
+	
 		
-		
-		
+					
 			/**
 			* Constructor; does do anything at the moment
 			*
 			*/
 			public function Param() {
+
+				playerPath = null;	
+				contentPath = null;
+							
+				autoPlay = DEFAULT_AUTO_PLAY;
+				autoScale = DEFAULT_AUTO_SCALE;
+				buttonOverlay = null;
+				captions = null;
+				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
+				loop = DEFAULT_LOOP;
+				preloader = null;
+				preRoll = null;
+				preview = null;
+				skin = null;
+				skinColor = DEFAULT_SKIN_COLOR;
+				skinScaleMaximum = DEFAULT_SKIN_SCALE_MAXIMUM;
+				video = null;
+				videoHeight = NaN;
+				videoWidth = NaN;
+				
+
 			}
 
 
@@ -231,48 +286,79 @@ package org.FLVPlayer {
 			*
 			* @param base	A DisplayObject, where the parameters are; Normally "root"
 			*/
-			public function getParamFromHTML(base:DisplayObject) {
-				
+			public function setByFlashVars(base:DisplayObject) {
+
 				playerPath = base.loaderInfo.parameters.playerpath;	
 				contentPath = base.loaderInfo.parameters.contentpath;
-				video = base.loaderInfo.parameters.video;
-				
-				defaultSkin = playerPath + "defaultskin.swf";
-				skin = base.loaderInfo.parameters.skin;
-				
-				// skinColor, default: 0x555555
-				skinColor = changeParamTo_uint(base.loaderInfo.parameters.skincolor, 0x555555);
-			
-				// skin scale maximum, default 4.5
-				skinScaleMaximum = changeParamToNumber(base.loaderInfo.parameters.skinscalemaximum);
 							
-			
-				preview = base.loaderInfo.parameters.preview;
-				loop = base.loaderInfo.parameters.loop;
-				
-				// autoPlay, default: false
-				autoPlay = changeParamToBoolean(base.loaderInfo.parameters.autoplay, false);
-				
-				// autoScale, default: true
-				autoScale = changeParamToBoolean(base.loaderInfo.parameters.autoscale, true);
-				
-				videoWidth = changeParamToNumber(base.loaderInfo.parameters.videowidth);	
-				videoHeight = changeParamToNumber(base.loaderInfo.parameters.videoheight);
-				
-				preRoll = base.loaderInfo.parameters.preroll;
-				postRoll = base.loaderInfo.parameters.postroll;
-				captions = base.loaderInfo.parameters.captions;
-				
-				// preloader url, default "preloader.swf"
-				preloader = base.loaderInfo.parameters.preloader;
-				
-				// buttonOverlay url, default "buttonOverlay.swf"
+				autoPlay = changeParamToBoolean(base.loaderInfo.parameters.autoplay, DEFAULT_AUTO_PLAY);
+				autoScale = changeParamToBoolean(base.loaderInfo.parameters.autoscale, DEFAULT_AUTO_SCALE);
 				buttonOverlay = base.loaderInfo.parameters.buttonoverlay;
-				
-				//configFile = base.loaderInfo.parameters.configfile;
-				
+				captions = base.loaderInfo.parameters.captions;
+				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
+				loop = base.loaderInfo.parameters.loop;
+				postRoll = base.loaderInfo.parameters.postroll;
+				preloader = base.loaderInfo.parameters.preloader;
+				preRoll = base.loaderInfo.parameters.preroll;
+				preview = base.loaderInfo.parameters.preview;
+				skin = base.loaderInfo.parameters.skin;
+				skinColor = changeParamTo_uint(base.loaderInfo.parameters.skincolor, DEFAULT_SKIN_COLOR);
+				skinScaleMaximum = changeParamToNumber(base.loaderInfo.parameters.skinscalemaximum);
+				video = base.loaderInfo.parameters.video;
+				videoHeight = changeParamToNumber(base.loaderInfo.parameters.videoheight);
+				videoWidth = changeParamToNumber(base.loaderInfo.parameters.videowidth);
+
+	
 			}
 
+
+
+			/**
+			* set the path to all the player files
+			* @param  arg      String
+			*/
+	
+			public function set playerPath( arg:String ) : void { 
+				
+				if ((arg != null) && (arg != "")) {
+					_playerPath = arg + "/"; 
+				}
+				else {
+
+					_playerPath = DEFAULT_PLAYER_PATH;
+				}
+								
+			}
+			
+
+			public function get playerPath():String { 
+				return _playerPath; 
+			}
+
+
+
+
+			/**
+			* set the path to all the content files (video, captions, preroll, ...)
+			* @param  arg      String
+			*/
+	
+			public function set contentPath( arg:String ) : void { 
+
+					if ((arg != null) && (arg != "")) {
+						_contentPath = arg + "/"; 
+					}
+					else {
+
+						_contentPath = DEFAULT_CONTENT_PATH;
+					}
+
+				}
+			
+
+			public function get contentPath():String { 
+				return _contentPath; 
+			}
 
 
 			/**
@@ -306,15 +392,23 @@ package org.FLVPlayer {
 					_preview = contentPath + arg; 
 				}
 				else {
-					_preview = null;
+					_preview = playerPath + DEFAULT_PREVIEW_FILENAME;
 				}
 			}
 	
 			public function get preview() : String { 
 				return _preview; 
 			}
+
+
+			/**
+			* get Default preview
+			*	
+			*/
 			
-			
+			public function getDefaultPreview() : String { 
+				return playerPath + DEFAULT_PREVIEW_FILENAME;
+			}			
 
 			
 
@@ -380,7 +474,7 @@ package org.FLVPlayer {
 					_skinScaleMaximum = arg;
 				}
 				else {
-					_skinScaleMaximum = 4.5;
+					_skinScaleMaximum = DEFAULT_SKIN_SCALE_MAXIMUM;
 				}
 			}
 
@@ -388,52 +482,9 @@ package org.FLVPlayer {
 				return _skinScaleMaximum; 
 			}		
 			
-
-			/**
-			* set the path to all the player files
-			* @param  arg      String
-			*/
-	
-			public function set playerPath( arg:String ) : void { 
-				
-				if ((arg != null) && (arg != "")) {
-					_playerPath = arg + "/"; 
-				}
-				else {
-
-					_playerPath = "";
-				}
-								
-			}
+		
 			
 
-			public function get playerPath():String { 
-				return _playerPath; 
-			}
-			
-			
-
-			/**
-			* set the path to all the content files (video, captions, preroll, ...)
-			* @param  arg      String
-			*/
-	
-			public function set contentPath( arg:String ) : void { 
-
-					if ((arg != null) && (arg != "")) {
-						_contentPath = arg + "/"; 
-					}
-					else {
-
-						_contentPath = "";
-					}
-
-				}
-			
-
-			public function get contentPath():String { 
-				return _contentPath; 
-			}			
 
 
 			
@@ -444,8 +495,6 @@ package org.FLVPlayer {
 	
 			public function set loop( arg:Boolean ) : void { 
 
-				// note: null and "" -> false
-				// anything else --> true
 				_loop = arg; 
 
 			}
@@ -580,7 +629,7 @@ package org.FLVPlayer {
 			* set the filename of the preloader file (swf)
 			* @param  arg      String
 			*	
-			* @default String	"preloader.swf"
+			* @default String	"DEFAULT_PRELOADER_FILENAME"
 			*/
 
 			public function set preloader( arg:String ) : void { 
@@ -589,7 +638,7 @@ package org.FLVPlayer {
 					_preloader = playerPath + arg; 
 				}
 				else {
-					_preloader = playerPath + "preloader.swf";
+					_preloader = playerPath + DEFAULT_PRELOADER_FILENAME;
 				}
 			}
 			
@@ -603,7 +652,7 @@ package org.FLVPlayer {
 			* set the filename of the buttonoverlay file (swf)
 			* @param  arg      String
 			*	
-			*	*@default String	"buttonOverlay.swf"
+			*	*@default String	DEFAULT_BUTTON_OVERLAY_FILENAME
 			*/
 
 			public function set buttonOverlay( arg:String ) : void { 
@@ -612,7 +661,7 @@ package org.FLVPlayer {
 					_buttonOverlay = playerPath + arg; 
 				}
 				else {
-					_buttonOverlay = playerPath + "buttonOverlay.swf";
+					_buttonOverlay = playerPath + DEFAULT_BUTTON_OVERLAY_FILENAME;
 				}
 			}
 			
