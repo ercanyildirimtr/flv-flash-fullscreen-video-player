@@ -140,6 +140,10 @@ package org.FLVPlayer {
 					dispatchEvent(new Event("videoNotFound"));
 				}
 				
+				if (_param.loop == true) {
+					player.myFLVPlayback.addEventListener(VideoEvent.COMPLETE, initLoop);
+				}
+				
 				loadSkin();
 				loadCaptions();
 			}
@@ -224,6 +228,18 @@ package org.FLVPlayer {
 			
 			// start initAndPlay again
 			this.initAndPlayVideo();
+		}
+		
+		
+		/**
+		* 
+		* Loop
+		*
+		*/
+		private function initLoop(evet:Event):void {
+			
+			// start again
+			player.myFLVPlayback.play();
 		}
 		
 		
