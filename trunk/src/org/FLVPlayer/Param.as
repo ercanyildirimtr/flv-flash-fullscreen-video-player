@@ -18,7 +18,7 @@ package org.FLVPlayer {
 	* The Param class handles the input parameteres from the URL/HTML/SWFObject
 	* It also checks the parameters and sets default values 
 	*	
-	*	@version 1.9.1
+	*	@version 1.9.2
 	*/
 	
 	public class Param {
@@ -296,7 +296,7 @@ package org.FLVPlayer {
 				buttonOverlay = base.loaderInfo.parameters.buttonoverlay;
 				captions = base.loaderInfo.parameters.captions;
 				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
-				loop = base.loaderInfo.parameters.loop;
+				loop = changeParamToBoolean(base.loaderInfo.parameters.loop, DEFAULT_LOOP);
 				postRoll = base.loaderInfo.parameters.postroll;
 				preloader = base.loaderInfo.parameters.preloader;
 				preRoll = base.loaderInfo.parameters.preroll;
