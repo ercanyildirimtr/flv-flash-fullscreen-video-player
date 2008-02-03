@@ -238,11 +238,11 @@ package org.FLVPlayer {
 		*/
 		private static var DEFAULT_AUTO_PLAY:Boolean = false;
 		private static var DEFAULT_AUTO_SCALE:Boolean = true;	
-		private static var DEFAULT_BUTTON_OVERLAY_FILENAME:String = "buttonOverlay.swf";
+		private static var DEFAULT_BUTTON_OVERLAY_FILENAME:String = "defaultbuttonoverlay.swf";
 		private static var DEFAULT_CONTENT_PATH:String = "";
 		private static var DEFAULT_LOOP:Boolean = false;	
 		private static var DEFAULT_PLAYER_PATH:String = "";		
-		private static var DEFAULT_PRELOADER_FILENAME:String = "preloader.swf";
+		private static var DEFAULT_PRELOADER_FILENAME:String = "defaultpreloader.swf";
 		private static var DEFAULT_PREVIEW_FILENAME:String = "defaultpreview.jpg";
 		private static var DEFAULT_SKIN_COLOR:uint = 0x555555;
 		private static var DEFAULT_SKIN_FILENAME:String = "defaultskin.swf";
