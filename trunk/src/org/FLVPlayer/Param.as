@@ -18,7 +18,7 @@ package org.FLVPlayer {
 	* The Param class handles the input parameteres from the URL/HTML/SWFObject
 	* It also checks the parameters and sets default values 
 	*	
-	*	@version 1.9.2
+	*	@version 1.9.3
 	*/
 	
 	public class Param {
@@ -221,11 +221,21 @@ package org.FLVPlayer {
 
 		/**
 		* 
-		* captions
+		* loop
 		* 
 		*
 		*/
 		private var _loop:Boolean;
+		
+		
+		/**
+		* 
+		* debug
+		* 
+		*
+		*/
+		private var _debug:Boolean;
+		
 
 		// currently not used:
 		private var _postRoll:String;
@@ -247,6 +257,7 @@ package org.FLVPlayer {
 		private static var DEFAULT_SKIN_COLOR:uint = 0x555555;
 		private static var DEFAULT_SKIN_FILENAME:String = "defaultskin.swf";
 		private static var DEFAULT_SKIN_SCALE_MAXIMUM:Number = 4.5;
+		private static var DEFAULT_DEBUG:Boolean = false;
 	
 		
 					
@@ -263,6 +274,7 @@ package org.FLVPlayer {
 				autoScale = DEFAULT_AUTO_SCALE;
 				buttonOverlay = null;
 				captions = null;
+				debug = DEFAULT_DEBUG;
 				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
 				loop = DEFAULT_LOOP;
 				preloader = null;
@@ -295,7 +307,8 @@ package org.FLVPlayer {
 				autoScale = changeParamToBoolean(base.loaderInfo.parameters.autoscale, DEFAULT_AUTO_SCALE);
 				buttonOverlay = base.loaderInfo.parameters.buttonoverlay;
 				captions = base.loaderInfo.parameters.captions;
-				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
+				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;	
+				debug = changeParamToBoolean(base.loaderInfo.parameters.debug, DEFAULT_DEBUG);	
 				loop = changeParamToBoolean(base.loaderInfo.parameters.loop, DEFAULT_LOOP);
 				postRoll = base.loaderInfo.parameters.postroll;
 				preloader = base.loaderInfo.parameters.preloader;
@@ -502,6 +515,24 @@ package org.FLVPlayer {
 
 			public function get loop():Boolean { 
 				return _loop; 
+			}
+			
+			
+			
+			
+			/**
+			* set the debug parameter (true or false)
+			* @param  arg      Boolean
+			*/
+	
+			public function set debug( arg:Boolean ) : void { 
+				_debug = arg; 
+
+			}
+			
+
+			public function get debug():Boolean { 
+				return _debug; 
 			}
 
 
