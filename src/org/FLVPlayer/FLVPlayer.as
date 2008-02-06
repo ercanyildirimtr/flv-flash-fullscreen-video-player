@@ -141,6 +141,14 @@ package org.FLVPlayer {
 			if (p != null) {
 				myParam = p;
 			}
+			
+			
+			// stop logging?
+			if (myParam.debug == false) {
+				// stop logging
+				Logger.hide = true;
+			}
+
 
 			// place text field for error messages
 			placeErrorMsgTextField();
@@ -178,7 +186,7 @@ package org.FLVPlayer {
 			myTimer.addEventListener("timer", checkStatus);
 			myTimer.start();		
 			
-			// trace to Firebug
+			// trace to Firebug		
 			debug();
 
 				
@@ -446,6 +454,7 @@ package org.FLVPlayer {
 				Logger.info("buttonOverlay is: " + myParam.buttonOverlay);
 				Logger.info("captions is: " + myParam.captions );
 				Logger.info("content path is: " + myParam.contentPath );
+				Logger.info("debug is: " + myParam.debug );
 				Logger.info("default skin is: " + myParam.defaultSkin);
 				Logger.info("loop is: " + myParam.loop );
 				Logger.info("loop is: " + myParam.loop );
