@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>My video player</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<!-- ::::::::::::::::::::::::::::::::::: -->	
+	<!-- ::::::: FLV Player (part 1/2)::::: -->
+	<!-- ::::::::::::::::::::::::::::::::::: -->	
+		
+	<script type="text/javascript" src="swfobject.js"></script>
+	
+	<script type="text/javascript">
+		var flashvars = {};
+		
+			/* flv player parameters */		
+			flashvars.playerpath = swfobject.getQueryParamValue("playerpath");
+			flashvars.contentpath = swfobject.getQueryParamValue("contentpath");
+			
+			flashvars.video = swfobject.getQueryParamValue("video");
+			flashvars.preview = swfobject.getQueryParamValue("preview");						
+			flashvars.loop = swfobject.getQueryParamValue("loop");
+						
+			flashvars.skin = swfobject.getQueryParamValue("skin");
+			flashvars.skincolor = swfobject.getQueryParamValue("skincolor");
+			flashvars.skinscalemaximum = swfobject.getQueryParamValue("skinscalemaximum");				
+	
+			flashvars.autoscale = swfobject.getQueryParamValue("autoscale");
+			flashvars.autoplay = swfobject.getQueryParamValue("autoplay");
+			flashvars.videowidth = swfobject.getQueryParamValue("videowidth");
+			flashvars.videoheight = swfobject.getQueryParamValue("videoheight");
+			
+			flashvars.captions = swfobject.getQueryParamValue("captions");
+			flashvars.preroll = swfobject.getQueryParamValue("preroll");
+			
+			flashvars.preloader = swfobject.getQueryParamValue("preloader");
+			flashvars.buttonoverlay = swfobject.getQueryParamValue("buttonoverlay");
+			
+			flashvars.debug = swfobject.getQueryParamValue("debug");
+			/* end */		
+						
+			var params = {};
+				params.scale = "noscale";
+				params.allowfullscreen = "true";
+				params.salign = "tl";
+			
+			var attributes = {};
+				attributes.align = "left";
+			
+		/* embed flv player */			
+		// adapt the path to flvplayer.swf and expressInstall.swf
+		// adapt the display size of the flash file	
+		swfobject.embedSWF("flvplayer.swf", "videoPlayer", "650", "530", "9.0.28", "expressInstall.swf", flashvars, params, attributes);
+		/* end */	
+		
+	</script>
+
+	<!-- :::::::::::::::::::::::::::::: -->	
+	<!-- :::::::::::::::::::::::::::::: -->	
+	<!-- :::::::::::::::::::::::::::::: -->	
+	
+</head>
+
+<body bgcolor="#FFFFFF">
+	
+	<!-- ::::::::::::::::::::::::::::::::::: -->	
+	<!-- ::::::: FLV Player (part 2/2) ::::: -->
+	<!-- ::::::::::::::::::::::::::::::::::: -->
+	
+	<div id="videoPlayer" style="margin:0px">
+	
+	    <p>This content requires the Adobe Flash Player.</p>
+
+		<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+	    </p>
+
+	</div>
+
+	<!-- :::::::::::::::::::::::::::::: -->	
+	<!-- :::::::::::::::::::::::::::::: -->	
+	<!-- :::::::::::::::::::::::::::::: -->
+
+</body>
+
+</html>
