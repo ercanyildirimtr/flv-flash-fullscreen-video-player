@@ -289,6 +289,11 @@ $f[3][1]['dn'] = 'loop';
 $f[3][1]['t'] = 'cb';
 $f[3][1]['v'] = 'false';
 
+$f[3][2]['on'] = 'debug';
+$f[3][2]['dn'] = 'debug';
+$f[3][2]['t'] = 'cb';
+$f[3][2]['v'] = 'false';
+
 // autoscale
 
 $f[4][0]['on'] = 'autoscale';
