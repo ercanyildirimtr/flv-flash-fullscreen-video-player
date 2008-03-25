@@ -187,7 +187,7 @@ package org.FLVPlayer {
 			myTimer.start();		
 			
 			// trace to Firebug		
-			debug();
+			debugParamObject();
 
 				
 		}
@@ -448,27 +448,28 @@ package org.FLVPlayer {
 		*	
 		*/
 
-		private function debug():void {
-				Logger.info("autoplay is: " + myParam.autoPlay );
-				Logger.info("autoscale is: " + myParam.autoScale );
-				Logger.info("buttonOverlay is: " + myParam.buttonOverlay);
-				Logger.info("captions is: " + myParam.captions );
-				Logger.info("content path is: " + myParam.contentPath );
-				Logger.info("debug is: " + myParam.debug );
-				Logger.info("default skin is: " + myParam.defaultSkin);
-				Logger.info("loop is: " + myParam.loop );
-				Logger.info("loop is: " + myParam.loop );
-				Logger.info("player path is: " + myParam.playerPath );
-				Logger.info("postroll is: " + myParam.postRoll );
-				Logger.info("preloader is: " + myParam.preloader);
-				Logger.info("preroll is: " + myParam.preRoll );
-				Logger.info("preview is: " + myParam.preview );
-				Logger.info("skin is: " + myParam.skin);
-				Logger.info("skin scale maximum is: " + myParam.skinScaleMaximum);
-				Logger.info("skincolor is: " + myParam.skinColor);
-				Logger.info("video is: " + myParam.video);
-				Logger.info("videoheight is: " + myParam.videoHeight );
-				Logger.info("videowidth is: " + myParam.videoWidth );
+		private function debugParamObject():void {
+				Logger.info("*** Parameter Object: *** autoplay is: " + myParam.autoPlay );
+				Logger.info("*** Parameter Object: *** autoscale is: " + myParam.autoScale );
+				Logger.info("*** Parameter Object: *** buttonOverlay is: " + myParam.buttonOverlay);
+				Logger.info("*** Parameter Object: *** captions is: " + myParam.captions );
+				Logger.info("*** Parameter Object: *** content path is: " + myParam.contentPath );
+				Logger.info("*** Parameter Object: *** debug is: " + myParam.debug );
+				Logger.info("*** Parameter Object: *** default skin is: " + myParam.defaultSkin);
+				Logger.info("*** Parameter Object: *** loop is: " + myParam.loop );
+				Logger.info("*** Parameter Object: *** loop is: " + myParam.loop );
+				Logger.info("*** Parameter Object: *** player path is: " + myParam.playerPath );
+				Logger.info("*** Parameter Object: *** postroll is: " + myParam.postRoll );
+				Logger.info("*** Parameter Object: *** preloader is: " + myParam.preloader);
+				Logger.info("*** Parameter Object: *** preroll is: " + myParam.preRoll );
+				Logger.info("*** Parameter Object: *** preview is: " + myParam.preview );
+				Logger.info("*** Parameter Object: *** skin is: " + myParam.skin);
+				Logger.info("*** Parameter Object: *** skin scale maximum is: " + myParam.skinScaleMaximum);
+				Logger.info("*** Parameter Object: *** skincolor is: " + myParam.skinColor);
+				Logger.info("*** Parameter Object: *** smoothing is: " + myParam.smoothing);
+				Logger.info("*** Parameter Object: *** video is: " + myParam.video);
+				Logger.info("*** Parameter Object: *** videoheight is: " + myParam.videoHeight );
+				Logger.info("*** Parameter Object: *** videowidth is: " + myParam.videoWidth );
 		}
 
 		

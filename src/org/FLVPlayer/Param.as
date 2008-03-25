@@ -18,7 +18,7 @@ package org.FLVPlayer {
 	* The Param class handles the input parameteres from the URL/HTML/SWFObject
 	* It also checks the parameters and sets default values 
 	*	
-	*	@version 1.9.3
+	*	@version 1.9.4
 	*/
 	
 	public class Param {
@@ -226,6 +226,15 @@ package org.FLVPlayer {
 		*
 		*/
 		private var _loop:Boolean;
+	
+		
+		/**
+		* 
+		* smoothing
+		* 
+		*
+		*/
+		private var _smoothing:Boolean;
 		
 		
 		/**
@@ -257,6 +266,7 @@ package org.FLVPlayer {
 		private static var DEFAULT_SKIN_COLOR:uint = 0x555555;
 		private static var DEFAULT_SKIN_FILENAME:String = "defaultskin.swf";
 		private static var DEFAULT_SKIN_SCALE_MAXIMUM:Number = 4.5;
+		private static var DEFAULT_SMOOTHING:Boolean = true;
 		private static var DEFAULT_DEBUG:Boolean = false;
 	
 		
@@ -283,6 +293,7 @@ package org.FLVPlayer {
 				skin = null;
 				skinColor = DEFAULT_SKIN_COLOR;
 				skinScaleMaximum = DEFAULT_SKIN_SCALE_MAXIMUM;
+				smoothing = DEFAULT_SMOOTHING;
 				video = null;
 				videoHeight = NaN;
 				videoWidth = NaN;
@@ -317,6 +328,7 @@ package org.FLVPlayer {
 				skin = base.loaderInfo.parameters.skin;
 				skinColor = changeParamTo_uint(base.loaderInfo.parameters.skincolor, DEFAULT_SKIN_COLOR);
 				skinScaleMaximum = changeParamToNumber(base.loaderInfo.parameters.skinscalemaximum);
+				smoothing = changeParamToBoolean(base.loaderInfo.parameters.smoothing, DEFAULT_SMOOTHING);
 				video = base.loaderInfo.parameters.video;
 				videoHeight = changeParamToNumber(base.loaderInfo.parameters.videoheight);
 				videoWidth = changeParamToNumber(base.loaderInfo.parameters.videowidth);
@@ -533,6 +545,22 @@ package org.FLVPlayer {
 
 			public function get debug():Boolean { 
 				return _debug; 
+			}
+			
+			
+			/**
+			* turn smoothing on or off (true or false)
+			* @param  arg      Boolean
+			*/
+	
+			public function set smoothing( arg:Boolean ) : void { 
+				_smoothing = arg; 
+
+			}
+			
+
+			public function get smoothing():Boolean { 
+				return _smoothing; 
 			}
 
 
