@@ -26,7 +26,7 @@ package org.FLVPlayer {
 	* Main application 
 	*	
 	*
-	* @version 1.9.1
+	* @version 1.9.5
 	* 
 	*/
 	
@@ -80,7 +80,24 @@ package org.FLVPlayer {
 		private var errorMsg:TextField;
 
 
+		/**
+		* state of the application 
+		*/
+		private var applicationState:String;
 
+
+		/**
+		* 
+		* Constants
+		* 
+		*
+		*/
+		private static var STATE_INIT:String = "state_init";
+		private static var STATE_PREVIEW:String = "state_preview";
+		private static var STATE_PREROLLVIDEO:String = "state_prerollvideo";
+		private static var STATE_MAINVIDEO:String = "state_mainvideo";
+		
+		private static var APPLICATION_VERSION:String = "1.9.5";		
 
 		/**
 		* Constructor
@@ -91,6 +108,8 @@ package org.FLVPlayer {
 			
 		public function FLVPlayer():void {
 
+			// set state for application: init
+			applicationState = STATE_INIT;
 		
 		}
 
@@ -138,10 +157,11 @@ package org.FLVPlayer {
 				
 		public function start(p:Param = null):void {
 		
+			// handle optional parameter
 			if (p != null) {
 				myParam = p;
-			}
-			
+			}	
+
 			
 			// stop logging?
 			if (myParam.debug == false) {
@@ -149,6 +169,8 @@ package org.FLVPlayer {
 				Logger.hide = true;
 			}
 
+			// set state for application: preview screen
+			applicationState = STATE_PREVIEW;
 
 			// place text field for error messages
 			placeErrorMsgTextField();
@@ -251,12 +273,14 @@ package org.FLVPlayer {
 
 		private function startVideo(e:Event) {
 
+			// remove movieclips (only if autoplay is false, otherwise there aren't any movieclips)
 			if (myParam.autoPlay == false) {
+				
 				// remove all items
-				removeChild(myPreview);
-				removeChild(myChrome);
-				removeChild(myButtonOverlay);
+				removePreviewMovieClips();
+
 			}
+			
 
 			//show Preloader
 			myPreloader.visible = true;
@@ -285,7 +309,10 @@ package org.FLVPlayer {
 		private function playbackEngineComplete(evt:Event):void {
 
 				// hide preloader
-				myPreloader.visible = false;		
+				myPreloader.visible = false;
+				
+				// set state for application: video
+				applicationState = STATE_MAINVIDEO;		
 
 		}
 
@@ -329,6 +356,56 @@ package org.FLVPlayer {
 			errorMsg.width = 200;
 			errorMsg.height = 60;
 		}	
+	
+	
+
+		/**
+		* update player with a new parameter object
+		*
+		* @param flv player param object
+		*/
+
+		public function updatePlayer(p:Param):void {
+
+			// check current state
+			if (applicationState == STATE_PREVIEW) {
+				
+				// remove movieclips
+				removePreviewMovieClips();
+				
+				// start/init player with new param object			
+				start(p);
+				
+			}
+			
+			// check current state
+			if ( (applicationState == STATE_MAINVIDEO) || (applicationState == STATE_PREROLLVIDEO) ) {
+				
+				// !!!!!!!!!!!!!!!!!!!!!!!!!!
+				// !!!!!!!!!!!!!!!!!!!!!!!!!!
+				// !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+				removeChild (myPlaybackEngine);
+
+				
+			}
+
+
+		}	
+
+
+		/**
+		*	
+		* Remove all movieclips that are displayed in preview screen state
+		*	
+		* @param event
+		*/
+
+		private function removePreviewMovieClips():void {
+			removeChild(myPreview);
+			removeChild(myChrome);
+			removeChild(myButtonOverlay);
+		}
 	
 
 		/**
@@ -449,6 +526,7 @@ package org.FLVPlayer {
 		*/
 
 		private function debugParamObject():void {
+				Logger.info("### FLV Flash Fullscreen Video Player ### version is: " + APPLICATION_VERSION);
 				Logger.info("*** Parameter Object: *** autoplay is: " + myParam.autoPlay );
 				Logger.info("*** Parameter Object: *** autoscale is: " + myParam.autoScale );
 				Logger.info("*** Parameter Object: *** buttonOverlay is: " + myParam.buttonOverlay);
