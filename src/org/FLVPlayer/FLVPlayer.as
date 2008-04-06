@@ -94,8 +94,7 @@ package org.FLVPlayer {
 		*/
 		private static var STATE_INIT:String = "state_init";
 		private static var STATE_PREVIEW:String = "state_preview";
-		private static var STATE_PREROLLVIDEO:String = "state_prerollvideo";
-		private static var STATE_MAINVIDEO:String = "state_mainvideo";
+		private static var STATE_VIDEO:String = "state_video";
 		
 		private static var APPLICATION_VERSION:String = "1.9.5";		
 
@@ -312,7 +311,7 @@ package org.FLVPlayer {
 				myPreloader.visible = false;
 				
 				// set state for application: video
-				applicationState = STATE_MAINVIDEO;		
+				applicationState = STATE_VIDEO;		
 
 		}
 
@@ -373,22 +372,23 @@ package org.FLVPlayer {
 				// remove movieclips
 				removePreviewMovieClips();
 				
-				// start/init player with new param object			
-				start(p);
 				
 			}
 			
 			// check current state
-			if ( (applicationState == STATE_MAINVIDEO) || (applicationState == STATE_PREROLLVIDEO) ) {
+			if ( applicationState == STATE_VIDEO ) {
 				
-				// !!!!!!!!!!!!!!!!!!!!!!!!!!
-				// !!!!!!!!!!!!!!!!!!!!!!!!!!
-				// !!!!!!!!!!!!!!!!!!!!!!!!!!
-
+				// stop video / close netstream
+				myPlaybackEngine.player.vp.netStream.close();
+				
+				// remove video from stage
 				removeChild (myPlaybackEngine);
-
+	
 				
 			}
+
+		// start/init player with new param object			
+		start(p);
 
 
 		}	
