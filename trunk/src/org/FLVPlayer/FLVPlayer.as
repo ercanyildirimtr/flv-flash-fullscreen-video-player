@@ -96,7 +96,7 @@ package org.FLVPlayer {
 		private static var STATE_PREVIEW:String = "state_preview";
 		private static var STATE_VIDEO:String = "state_video";
 		
-		private static var APPLICATION_VERSION:String = "1.9.5";		
+		private static var APPLICATION_VERSION:String = "1.9.6";		
 
 		/**
 		* Constructor
@@ -534,6 +534,7 @@ package org.FLVPlayer {
 				Logger.info("*** Parameter Object: *** content path is: " + myParam.contentPath );
 				Logger.info("*** Parameter Object: *** debug is: " + myParam.debug );
 				Logger.info("*** Parameter Object: *** default skin is: " + myParam.defaultSkin);
+				Logger.info("*** Parameter Object: *** islive is: " + myParam.isLive);
 				Logger.info("*** Parameter Object: *** loop is: " + myParam.loop );
 				Logger.info("*** Parameter Object: *** loop is: " + myParam.loop );
 				Logger.info("*** Parameter Object: *** player path is: " + myParam.playerPath );

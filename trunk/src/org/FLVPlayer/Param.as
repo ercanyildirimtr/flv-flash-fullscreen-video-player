@@ -23,84 +23,8 @@ package org.FLVPlayer {
 	
 	public class Param {
 		
-		
-		/**
-		* URL of the video file
-		* 
-		* @example /videos/myvideo.flv
-		* @example http://www.video-flash.de/myvideo.flv
-		*
-		* @default 
-		*/
-		private var _video:String;			
 
-		
-		/**
-		* URL of the skin file
-		* (If the property "playerPath" is set, the URL is relative to the player path.)
-		*
-		* @example /skins/myskin.swf
-		* @example http://www.video-flash.de/myskin.swf
-		*
-		* @see #playerpath
-		*/	
-		private var _skin:String;
-		
-		
-		/**
-		* Skin scale maximum (fullscreen mode only)
-		* 
-		*
-		* @example 2
-		*
-		* @default 4
-		*
-		*/	
-		private var _skinScaleMaximum:Number;
 
-	
-		/**
-		* URL of the default skin file
-		*
-		*/	
-		private var _defaultSkin:String;	
-		
-		
-		
-		/**
-		* Skin color in Hex values; works only, if the skins is enabled for changing its color
-		* 
-		* @example 0xFF0000
-		*
-		* @default DEFAULT_SKIN_COLOR
-		*/	
-		private var _skinColor:uint;
-		
-		/**
-		* URL of the config file (xml) that contains the parameters  
-		*
-		* 
-		* @example configfile.xml
-		* @example http://www.video-flash.de/configfile.xml
-		*
-		* @default 
-		*/	
-		//private var _configFile:String;		
-		
-		/**
-		* URL of the preview file (jpg, gif, png, swf) that should displayed as preview screen  
-		* (If the property "contentPath" is set, the URL is relative to the content path.)
-		*
-		* 
-		* @example mypreview.jpg
-		* @example http://www.video-flash.de/mypreview.jpg
-		*
-		* @default 
-		*/	
-		private var _preview:String;			// preview (jpg, gif, png, swf)
-
-		
-		
 		/**
 		* URL or path to all the files that belong to the player (Player SWF files and Skin files)  
 		* Note: Don't place a Slash at the end, this is automatically added! 
@@ -131,6 +55,12 @@ package org.FLVPlayer {
 		
 		
 		
+		
+		
+
+
+
+
 		/**
 		* If set to true, the video starts immediatelly and no preview is displayed 
 		*
@@ -153,7 +83,164 @@ package org.FLVPlayer {
 		*/			
 		private var _autoScale:Boolean;
 		
+
 		
+		/**
+		* 
+		* URL of the buttonoverlay file
+		* 
+		* @default 
+		*
+		*/					
+		private var _buttonOverlay:String;
+		
+		
+		
+		/**
+		* 
+		* name of the captionsfile
+		* 
+		*
+		*/
+		private var _captions:String;
+		
+		
+		/**
+		* 
+		* debug
+		* 
+		*
+		*/
+		private var _debug:Boolean;
+
+
+
+		/**
+		* URL of the default skin file
+		*
+		*/	
+		private var _defaultSkin:String;
+
+
+
+
+	
+		/**
+		* 
+		* debug
+		* 
+		*
+		*/
+		private var _isLive:Boolean;
+
+
+		
+
+
+		/**
+		* 
+		* loop
+		* 
+		*
+		*/
+		private var _loop:Boolean;
+
+
+		
+		
+		/**
+		* 
+		* URL of the preloader file
+		* 
+		* @default 
+		*
+		*/					
+		private var _preloader:String;
+
+
+
+	
+		/**
+		* 
+		* preroll file
+		* 
+		* @default 
+		*
+		*/					
+		private var _preRoll:String;			
+
+
+
+		/**
+		* URL of the preview file (jpg, gif, png, swf) that should displayed as preview screen  
+		* (If the property "contentPath" is set, the URL is relative to the content path.)
+		*
+		* 
+		* @example mypreview.jpg
+		* @example http://www.video-flash.de/mypreview.jpg
+		*
+		* @default 
+		*/	
+		private var _preview:String;		
+
+		
+		/**
+		* URL of the skin file
+		* (If the property "playerPath" is set, the URL is relative to the player path.)
+		*
+		* @example /skins/myskin.swf
+		* @example http://www.video-flash.de/myskin.swf
+		*
+		* @see #playerpath
+		*/	
+		private var _skin:String;
+		
+
+
+		/**
+		* Skin color in Hex values; works only, if the skins is enabled for changing its color
+		* 
+		* @example 0xFF0000
+		*
+		* @default DEFAULT_SKIN_COLOR
+		*/	
+		private var _skinColor:uint;
+	
+		
+		/**
+		* Skin scale maximum (fullscreen mode only)
+		* 
+		*
+		* @example 2
+		*
+		* @default 4
+		*
+		*/	
+		private var _skinScaleMaximum:Number;
+
+		
+		
+		/**
+		* 
+		* smoothing
+		* 
+		*
+		*/
+		private var _smoothing:Boolean;	
+
+		
+
+
+		/**
+		* URL of the video file
+		* 
+		* @example /videos/myvideo.flv
+		* @example http://www.video-flash.de/myvideo.flv
+		*
+		* @default 
+		*/
+		private var _video:String;
+			
 		
 		/**
 		* 
@@ -179,75 +266,19 @@ package org.FLVPlayer {
 		private var _videoHeight:Number;		// height of the video
 
 		
-		/**
-		* 
-		* preroll file
-		* 
-		* @default 
-		*
-		*/					
-		private var _preRoll:String;			// name of the preroll file
-		
-		
-		
-		/**
-		* 
-		* URL of the preloader file
-		* 
-		* @default 
-		*
-		*/					
-		private var _preloader:String;
-		
-	
-		/**
-		* 
-		* URL of the buttonoverlay file
-		* 
-		* @default 
-		*
-		*/					
-		private var _buttonOverlay:String;
-		
-		
-		/**
-		* 
-		* captions
-		* 
-		*
-		*/
-		private var _captions:String;			// name of the captionsf file
 
 
-		/**
-		* 
-		* loop
-		* 
-		*
-		*/
-		private var _loop:Boolean;
+
 	
 		
-		/**
-		* 
-		* smoothing
-		* 
-		*
-		*/
-		private var _smoothing:Boolean;
+	// currently not used:
+	private var _postRoll:String;
+
+
 		
-		
-		/**
-		* 
-		* debug
-		* 
-		*
-		*/
-		private var _debug:Boolean;
 		
 
-		// currently not used:
-		private var _postRoll:String;
+
 
 		/**
 		* 
@@ -268,6 +299,7 @@ package org.FLVPlayer {
 		private static var DEFAULT_SKIN_SCALE_MAXIMUM:Number = 4.5;
 		private static var DEFAULT_SMOOTHING:Boolean = true;
 		private static var DEFAULT_DEBUG:Boolean = false;
+		private static var DEFAULT_ISLIVE:Boolean = false;		
 	
 		
 					
@@ -285,7 +317,8 @@ package org.FLVPlayer {
 				buttonOverlay = null;
 				captions = null;
 				debug = DEFAULT_DEBUG;
-				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;		
+				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;
+				isLive = DEFAULT_ISLIVE;		
 				loop = DEFAULT_LOOP;
 				preloader = null;
 				preRoll = null;
@@ -319,7 +352,8 @@ package org.FLVPlayer {
 				buttonOverlay = base.loaderInfo.parameters.buttonoverlay;
 				captions = base.loaderInfo.parameters.captions;
 				defaultSkin = playerPath + DEFAULT_SKIN_FILENAME;	
-				debug = changeParamToBoolean(base.loaderInfo.parameters.debug, DEFAULT_DEBUG);	
+				debug = changeParamToBoolean(base.loaderInfo.parameters.debug, DEFAULT_DEBUG);
+				isLive = changeParamToBoolean(base.loaderInfo.parameters.islive, DEFAULT_ISLIVE);	
 				loop = changeParamToBoolean(base.loaderInfo.parameters.loop, DEFAULT_LOOP);
 				postRoll = base.loaderInfo.parameters.postroll;
 				preloader = base.loaderInfo.parameters.preloader;
@@ -549,6 +583,22 @@ package org.FLVPlayer {
 			
 			
 			/**
+			* set the isLive parameter (true or false)
+			* @param  arg      Boolean
+			*/
+	
+			public function set isLive( arg:Boolean ) : void { 
+				_isLive = arg; 
+
+			}
+			
+
+			public function get isLive():Boolean { 
+				return _isLive; 
+			}
+			
+			
+			/**
 			* turn smoothing on or off (true or false)
 			* @param  arg      Boolean
 			*/
@@ -729,6 +779,10 @@ package org.FLVPlayer {
 				return _buttonOverlay; 
 			}
 	
+	
+	
+			// :::::::::::::::::
+			// :::::::::::::::::
 	
 	
 			/**
