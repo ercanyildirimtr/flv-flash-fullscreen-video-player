@@ -402,9 +402,15 @@ package org.FLVPlayer {
 		*/
 
 		private function removePreviewMovieClips():void {
-			removeChild(myPreview);
-			removeChild(myChrome);
-			removeChild(myButtonOverlay);
+			try {
+				removeChild(myPreview);
+				removeChild(myChrome);
+				removeChild(myButtonOverlay);
+			}
+			catch (e:Error) {
+				
+			}
+			
 		}
 	
 
