@@ -26,7 +26,7 @@ package org.FLVPlayer {
 	* Main application 
 	*	
 	*
-	* @version 1.9.5
+	* @version 1.9.7
 	* 
 	*/
 	
@@ -96,7 +96,7 @@ package org.FLVPlayer {
 		private static var STATE_PREVIEW:String = "state_preview";
 		private static var STATE_VIDEO:String = "state_video";
 		
-		private static var APPLICATION_VERSION:String = "1.9.6";		
+		private static var APPLICATION_VERSION:String = "1.9.7";		
 
 		/**
 		* Constructor
@@ -174,12 +174,20 @@ package org.FLVPlayer {
 			// place text field for error messages
 			placeErrorMsgTextField();
 
-			// new Preloader
-			myPreloader = new Preloader(myParam.preloader);
-			myPreloader.addEventListener("fileNotFound", preloaderErrorHandling);
+			// new Preloader (check if it exists already)
+			if (!Boolean(this.getChildByName('myPreloader'))) {
+				myPreloader = new Preloader(myParam.preloader);
+			}			
+			myPreloader.visible = true;
 			this.addChild(myPreloader);
 			myPreloader.x = 10;
 			myPreloader.y = 10;
+			myPreloader.name = "myPreloader";						
+
+			// event listener for fileNotFound
+			myPreloader.addEventListener("fileNotFound", preloaderErrorHandling);
+			
+
 
 			// new preview
 			if (myParam.preview != null) { 
@@ -366,8 +374,14 @@ package org.FLVPlayer {
 
 		public function updatePlayer(p:Param):void {
 
+			// clean error message display
+			errorMsg.text = "";
+
 			// check current state
 			if (applicationState == STATE_PREVIEW) {
+				
+				// stop timer (in case the player is loading some preview assets at the moment)
+				myTimer.stop();
 				
 				// remove movieclips
 				removePreviewMovieClips();
