@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: FLV Flash Fullscreen Video Player
-Version: 1.9.2
+Version: 1.9.6
 Plugin URI: http://www.video-flash.de
 Description: Embed flash videos using the "FLV Flash Fullscreen Video Player". The FLV Player can be configured under "Options > FLV Player". How to use: <code>[flashvideo video=demo-video.flv /]</code>. 
 Author: Florian Plag
@@ -87,7 +87,7 @@ function FlashVideo_Render($matches) {
 		$arguments['filename'] = $site_url . '/' . $arguments['filename'];
 	}
 	
-	$output .= "\n" . '<span id="video' . $videoid . '" class="flashvideo">' . "\n";
+	$output .= "\n" . '<span id="video' . $videoid . '" class="flashvideo" style="">' . "\n";
    	$output .= '<a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</span>' . "\n";
     	$output .= '<script type="text/javascript">' . "\n";
 	$output .= 'var s' . $videoid . ' = new SWFObject("' . $options[0][0]['v'] . '","n' . $videoid . '","' . $options[0][1]['v'] . '","' . $options[0][2]['v'] . '","7");' . "\n";
@@ -111,13 +111,17 @@ function FlashVideo_Render($matches) {
 				}
 			}
 			
-			if ( $value['v'] != '' && $value['on'] != 'location' ) {
+			if ( $value['v'] != '' && !in_array($value['on'], array('location', 'bgcolor')) ) {
 				$output .= 's' . $videoid . '.addVariable("' . $value['on'] . '","' . $value['v'] . '");' . "\n";
+			} 
+			elseif ( $value['v'] != '' && in_array($value['on'], array('bgcolor')) ) {
+				$output .= 's' . $videoid . '.addParam("' . $value['on'] . '","' . $value['v'] . '");' . "\n";
 			}
 		}
 	}
 	$output .= 's' . $videoid . '.addVariable("file","' . $arguments['filename'] . '");' . "\n";
 	$output .= 's' . $videoid . '.write("video' . $videoid . '");' . "\n";
+	
 	$output .= '</script>' . "\n";
 
 	$videoid++;
@@ -215,7 +219,6 @@ function FlashVideoLoadDefaults() {
 	
 // swf
 
-
 $f[0][0]['on'] = 'location';
 $f[0][0]['dn'] = 'SWF Location';
 $f[0][0]['t'] = 'tx';
@@ -231,6 +234,11 @@ $f[0][2]['dn'] = 'height';
 $f[0][2]['t'] = 'tx';
 $f[0][2]['v'] = '285';
 
+$f[0][3]['on'] = 'bgcolor';
+$f[0][3]['dn'] = 'bgcolor';
+$f[0][3]['t'] = 'tx';
+$f[0][3]['v'] = 'FFFFFF';
+   
 // paths
 
 $f[1][0]['on'] = 'playerpath';
@@ -243,7 +251,6 @@ $f[1][1]['dn'] = 'contentpath';
 $f[1][1]['t'] = 'tx';
 $f[1][1]['v'] = $site_url . '/wp-content/flvplayer/content';
 
-
 // player and skin
 
 $f[2][0]['on'] = 'buttonoverlay';
@@ -251,30 +258,26 @@ $f[2][0]['dn'] = 'buttonoverlay';
 $f[2][0]['t'] = 'tx';
 $f[2][0]['v'] = '';
 
-
 $f[2][1]['on'] = 'preloader';
 $f[2][1]['dn'] = 'preloader';
 $f[2][1]['t'] = 'tx';
 $f[2][1]['v'] = '';
-   	
-   
+
 $f[2][2]['on'] = 'skin';
 $f[2][2]['dn'] = 'skin';
 $f[2][2]['t'] = 'tx';
 $f[2][2]['v'] = '';
-   
-   
+
 $f[2][3]['on'] = 'skincolor';
 $f[2][3]['dn'] = 'skin color';
 $f[2][3]['t'] = 'tx';
 $f[2][3]['v'] = '';
-   
-   
+
+
 $f[2][4]['on'] = 'skinscalemaximum';
 $f[2][4]['dn'] = 'skinscalemaximum';
 $f[2][4]['t'] = 'tx';
 $f[2][4]['v'] = '';			
-
 
 // playback
 
@@ -282,7 +285,6 @@ $f[3][0]['on'] = 'autoplay';
 $f[3][0]['dn'] = 'autoplay';
 $f[3][0]['t'] = 'cb';
 $f[3][0]['v'] = 'false';
-   
    
 $f[3][1]['on'] = 'loop';
 $f[3][1]['dn'] = 'loop';
@@ -311,7 +313,6 @@ $f[4][2]['dn'] = 'videoheight';
 $f[4][2]['t'] = 'tx';
 $f[4][2]['v'] = '';
 
-
 // content
 
 $f[5][0]['on'] = 'preview';
@@ -333,8 +334,6 @@ $f[5][3]['on'] = 'captions';
 $f[5][3]['dn'] = 'captions';
 $f[5][3]['t'] = 'tx';
 $f[5][3]['v'] = '';
-
-
 	
 	return $f;
 }
