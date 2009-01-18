@@ -1,4 +1,4 @@
-#Documentation of the parameters (FLV Flash Fullscreen Video Player)
+# Documentation of the parameters (FLV Flash Fullscreen Video Player)
 
 == Embed SWF ==
 
