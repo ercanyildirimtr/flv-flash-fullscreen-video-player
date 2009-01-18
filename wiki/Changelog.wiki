@@ -55,5 +55,16 @@ For Flash Developers: The Player can be instantiated and used in ActionScript. O
 
 == Unit tests ==
 Introduced some unit tests to keep an eye on the parameters
-                            
+                  
+= Changelog for 1.9.6 =
+
+== Live streaming ==
+Support for live streaming (new parameter `islive`
+
+= Changelog for 1.9.5 =
+
+== version number ==
+The version number is now displayed in the debug mode.
+
+          
                                         
