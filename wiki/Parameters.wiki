@@ -14,7 +14,7 @@ That means: All the files have to be in the folder defined in "contentPath". If 
 || *parameter* || *short description* || *examples* || default ||
 || video || The file name of the video file that should be displayed. Possible are all formats that can be played with the Flash Player (.flv, .f4v, .m4v, .mov, etc.).  || `demo-video.flv`, `demo-video.f4v` || – *(required)* ||
 || preview || Defines a custom preview picture (jpg, gif, png). If the file can't be found (e.g. wrong file name), the fallback is showing the default preview picture. ||  || The default preview picture. ||
-|| preroll || ... || || - ||
+|| preroll || Allows you to show a video before the main video (for instance advertisement). The preroll video cannot be skipped. || `demo-ad.flv`|| - ||
 || captions || Set the filename of a captions file (.xml) in the "Timed Text" format (see http://livedocs.adobe.com/flash/9.0/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00000604.html).||`demo-captions.xml` || - ||
 
 == Mode ==
@@ -32,7 +32,7 @@ That means: All the files have to be in the folder defined in "contentPath". If 
 
 == Customizing ==
 || *parameter* || *short description* || *example* ||
-|| skincolor || ... || ... ||
+|| skincolor || Changes the color of the play skin. Use hex color values. || `0xFF0000` || 0x555555 (grey) ||
 || skinscalemaximum || ... || ... ||
 || skin || ... || ... ||
 || buttonoverlay || ... || ... ||
