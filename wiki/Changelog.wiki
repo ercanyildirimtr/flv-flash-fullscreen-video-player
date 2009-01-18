@@ -43,15 +43,17 @@ I've moved some additional skins to the subfolder "flvplayer/skins" where you ca
 
 == Subfolders for sources ==
 Analogous the deploy folder, the sources have also been restructured.                         
-
-== Use the player in AS3 ==
-For Flash Developers: The Player can be instantiated and used in ActionScript. Optimized and removed some bugs.
-               
+             
 == HTML templates ==
 Some small changes in the HTML. "flashvars" is now "playervars" and "videoPlayer" is now "videoCanvas".
 
 == SWFObject 2.1 ==
 Updated SWFObject to 2.1
 
+== Use the player in AS3 ==
+For Flash Developers: The Player can be instantiated and used in ActionScript. Optimized and removed some bugs.
+
+== Unit tests ==
+Introduced some unit tests to keep an eye on the parameters
                             
                                         
