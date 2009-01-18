@@ -15,16 +15,16 @@
 
 == Mode ==
 
-|| *parameter* || *short description* || *example* ||
-|| autoplay || ... || ... ||
-|| loop || ... || ... ||
-|| islive || ... || ... ||
-|| volume || ... || ... ||
-|| autoscale || ... || ... ||
-|| videowidth || ... || ... ||
-|| videoheight || ... || ... ||
-|| smoothing || ... || ... ||
-|| debug || ... || ... ||
+|| *parameter* || *short description* || *example* || *default* ||
+|| autoplay || ... || ... || false ||
+|| loop || ... || ... || false ||
+|| islive || ... || ... || false ||
+|| volume || ... || ... || 1 ||
+|| autoscale || ... || ... || true ||
+|| videowidth || ... || ... || 320 ||
+|| videoheight || ... || ... || 240 ||
+|| smoothing || ... || ... || true ||
+|| debug || ... || ... || false ||
 
 == Customizing ==
 || *parameter* || *short description* || *example* ||
