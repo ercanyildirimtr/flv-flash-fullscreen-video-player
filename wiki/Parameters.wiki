@@ -1,0 +1,6 @@
+#Documentation of the parameters (FLV Flash Fullscreen Video Player)
+
+== Overview ==
+
+|| parameter || description || example ||
+|| parameter || description || example ||
