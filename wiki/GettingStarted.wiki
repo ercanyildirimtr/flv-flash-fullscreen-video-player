@@ -1,6 +1,6 @@
 #summary Getting started with the FLV Flash Fullscreen Video Player
 
-....
+= Getting started with the FLV Flash Fullscreen Video Player =
 
 == Deploying ==
   * Download the current release and upload the folder `flvplayer` to your web server. You can store your content (videos, jpgs, etc.) in the subfolder `flvplayer/content`.
