@@ -1,6 +1,36 @@
 #Documentation of the parameters (FLV Flash Fullscreen Video Player)
 
-== Overview ==
+== Embed SWF ==
 
-|| parameter || description || example ||
-|| parameter || description || example ||
+|| *parameter* || *short description* || *example* ||
+|| contentpath || ... || ... ||
+
+== Content ==
+
+|| *parameter* || *short description* || *example* ||
+|| video || ... || ... ||
+|| preview || ... || ... ||
+|| preroll || ... || ... ||
+|| captions || ... || ... ||
+
+== Mode ==
+
+|| *parameter* || *short description* || *example* ||
+|| autoplay || ... || ... ||
+|| loop || ... || ... ||
+|| islive || ... || ... ||
+|| volume || ... || ... ||
+|| autoscale || ... || ... ||
+|| videowidth || ... || ... ||
+|| videoheight || ... || ... ||
+|| smoothing || ... || ... ||
+|| debug || ... || ... ||
+
+== Customizing ==
+|| *parameter* || *short description* || *example* ||
+|| skincolor || ... || ... ||
+|| skinscalemaximum || ... || ... ||
+|| skin || ... || ... ||
+|| buttonoverlay || ... || ... ||
+|| ending || ... || ... ||
+|| preloader || ... || ... ||
