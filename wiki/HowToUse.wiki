@@ -8,7 +8,29 @@ There are various methods to use the FLV Player
   * SWFObject
   * JavaScript Playlists
   * ActionScript
+You can find examples in the download.
 
-== How to embed the FLV Player using the links ==
+== How to use the FLV Player using links ==
 
-The `flvplayer` contains an HTML page called `flashvideoplayer.html`.
+The `flvplayer` contains an HTML page called `flashvideoplayer.html`. You can link to this page and transfer the parameters in the query strings.
+
+{{{
+http://www.yourdomain.com/flvplayer/flashvideoplayer.html?video=content/demo-video.flv
+}}}
+
+If you have more than one parameter, add them with an "&".
+{{{
+http://www.yourdomain.com/flvplayer/flashvideoplayer.html?video=content/demo-video.flv&skin=skin-applestyle.swf
+}}}
+
+== How to embed the FLV Player using an iFrame ==
+
+You can integrate the player with an iframe. Just change the URL to `flashvideoplayer.html`and the parameters (see previous section).
+{{{
+<iframe src=".../flvplayer/flashvideoplayer.html?video=content/demo-video.flv" width="450" height="400" frameborder="0" scrolling="no"></iframe>
+}}}
+
+== How to embed the FLV Player using SWFObject ==
+[http://code.google.com/p/swfobject/ SWFObject] is an easy-to-use and standards-friendly method to embed Flash content, which utilizes one small JavaScript file. You can pass the parameters to player with 'flashvars'. 
+
+== How to create a JavaScript playlist == 
