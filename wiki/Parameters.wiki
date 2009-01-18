@@ -31,13 +31,13 @@ That means: All the files have to be in the folder defined in "contentPath". If 
 || debug || Turns the debug mode on and helps you to find and solve problems. It activates the log engine that gives you information about the current values of the parameters, states and error messages. To see that log engine, you need Firefox and the add-on Firebug (https://addons.mozilla.org/de/firefox/addon/1843) || `true` or `false` || false ||
 
 == Customizing ==
-|| *parameter* || *short description* || *example* ||
+|| *parameter* || *short description* || *example* || *default* ||
 || skincolor || Changes the color of the play skin. Use hex color values. || `0xFF0000` || 0x555555 (grey) ||
-|| skinscalemaximum || This parameters is a scale factor for the skin in the fullscreen mode. A higher value will increase the size of the buttons in the fullscreen mode and will reduce the required computer power. 4.5 is the maximum (biggest buttons and best performance).  || `2`, `3`, `4.5` || 1 ||
-|| skin || ... || ... ||
-|| buttonoverlay || ... || ... ||
-|| ending || ... || ... ||
-|| preloader || ... || ... ||
+|| skinscalemaximum || This parameters is a scale factor for the skin in the fullscreen mode. A higher value will increase the size of the buttons in the fullscreen mode and will reduce the required computer power. 4.5 is the maximum (biggest buttons and best performance).  || `2` or `3` or `4.5` || 1 ||
+|| skin || Sets a custom skin. This skin has to be compatible with the FLV Playback Component of Flash (CS3+CS4). || `skin-applestyle.swf`  || default skin ||
+|| buttonoverlay || Sets a custom buttonoverlay ( = button with play symbol on the intro screen). || buttonoverlay-blue.swf || default buttonoverlay ||
+|| ending || Sets a custom ending ( = button with replay symbol on the end screen). || ending-blue.swf || default ending ||
+|| preloader || Sets a custom preloader.  || preloader-ajax.swf || default preloader || 
 
 
 == Stuff ==
