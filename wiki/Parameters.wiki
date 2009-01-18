@@ -15,16 +15,16 @@
 
 == Mode ==
 
-|| *parameter* || *short description* || *example* || *default* ||
-|| autoplay || ... || ... || false ||
-|| loop || ... || ... || false ||
-|| islive || ... || ... || false ||
-|| volume || ... || ... || 1 ||
-|| autoscale || ... || ... || true ||
-|| videowidth || ... || ... || 320 ||
-|| videoheight || ... || ... || 240 ||
-|| smoothing || ... || ... || true ||
-|| debug || ... || ... || false ||
+|| *parameter* || *short description* || *examples* || *default* ||
+|| autoplay || ... || `true` or `false` || false ||
+|| loop || ... || `true` or `false` || false ||
+|| islive || Enables live streaming mode. Requires a streaming server (FMS, Wowza, etc.) || `true` or `false` || false ||
+|| volume || Initial volume of the player. Number from 0 to 1 || `0` (mute), `0.5` (half) || 1 ||
+|| autoscale || ... || `true` or `false` || true ||
+|| videowidth || ... || `640` || 320 ||
+|| videoheight || ... || `480` || 240 ||
+|| smoothing ||  Specifies whether the video should be smoothed (interpolated) when it is scaled. This will result in better quality but requires more power. || `true` or `false` || true ||
+|| debug || Turns the debug mode on and helps you to find and solve problems. It activates the log engine that gives you information about the current values of the parameters, states and error messages. To see that log engine, you need Firefox and the add-on Firebug (https://addons.mozilla.org/de/firefox/addon/1843) || `true` or `false` || false ||
 
 == Customizing ==
 || *parameter* || *short description* || *example* ||
