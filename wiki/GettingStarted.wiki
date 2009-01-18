@@ -3,11 +3,11 @@
 ....
 
 == Deploying ==
-  * 
+  * Download the current release and upload the folder `flvplayer` to your web server. You can store your content (videos, jpgs, etc.) in the subfolder `flvplayer/content`.
+  * You can use the player in different ways, see ...
 
 == Documentation ==
   * [Parameters]
 
 == Tools ==
   * [http://www.video-flash.de/flv-flash-fullscreen-video-player/html-generator/ HTML Generator]
-
