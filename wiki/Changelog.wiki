@@ -1,4 +1,4 @@
-#Changelog for FLV Flash Fullscreen Video Player
+#summary Changelog of the releases
 
 = Changelog for 1.9.7 =
 
