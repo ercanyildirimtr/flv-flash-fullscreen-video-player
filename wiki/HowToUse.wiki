@@ -1,0 +1,14 @@
+#summary Hot to use the FLV Player
+
+= Hot to use the FLV Flash Fullscreen Video Player =
+
+There are various methods to use the FLV Player
+  * Links
+  * iFrame
+  * SWFObject
+  * JavaScript Playlists
+  * ActionScript
+
+== How to embed the FLV Player using the links ==
+
+The `flvplayer` contains an HTML page called `flashvideoplayer.html`.
