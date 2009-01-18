@@ -33,7 +33,7 @@ That means: All the files have to be in the folder defined in "contentPath". If 
 == Customizing ==
 || *parameter* || *short description* || *example* ||
 || skincolor || Changes the color of the play skin. Use hex color values. || `0xFF0000` || 0x555555 (grey) ||
-|| skinscalemaximum || ... || ... ||
+|| skinscalemaximum || This parameters is a scale factor for the skin in the fullscreen mode. A higher value will increase the size of the buttons in the fullscreen mode and will reduce the required computer power. 4.5 is the maximum (biggest buttons and best performance).  || `2`, `3`, `4.5` || 1 ||
 || skin || ... || ... ||
 || buttonoverlay || ... || ... ||
 || ending || ... || ... ||
