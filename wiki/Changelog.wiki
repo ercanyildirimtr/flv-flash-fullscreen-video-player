@@ -5,7 +5,7 @@
 == playerpath ==
 The parameter "playerpath" isn't required any more, it's optional now and only necessary if you use the FLVPlayer from ActionScript. 
 
-To give you some background information: Instead the "base" parameter of SWFObject is set to "." so the Player automatically knows its location (see http://www.yswfblog.com/blog/2008/08/11/all-your-base-are-belong-to-us/)
+To give you some background information: Instead the "base" parameter of SWFObject is set to "." so the Player automatically knows its location
 
 == End screen==
 A new end screen has been introduced. The default version shows a button with replay symbol.
