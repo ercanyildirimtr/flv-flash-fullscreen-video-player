@@ -63,8 +63,18 @@ Support for live streaming (new parameter `islive`
 
 = Changelog for 1.9.5 =
 
-== version number ==
-The version number is now displayed in the debug mode.
+  * The version number is now displayed in the debug mode.
+  * Introduced the usage of the player in ActionScript
+
+= Changelog for 1.9.4 =
+
+  * smoothing
+
+= Changelog for 1.9.3 =
+  * Introduced debug mode (with FireFox and Firebug)
+  * Added a new preloader, button overlay and skin
+  * changed requirements (Flash Player 9.0.28)
+  
 
           
                                         
