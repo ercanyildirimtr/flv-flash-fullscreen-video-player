@@ -38,49 +38,29 @@ HTML head:
 <script type="text/javascript" src="../flvplayer/swfobject.js"></script>
 
 <script type="text/javascript">
-	var flashvars = {};
-	
-		/* flv player parameters */		
-		flashvars.playerpath = ""; 				// do not use relative paths! This is just a local example.
-		flashvars.contentpath = "../flvplayer/content";	   // Use http://www.example.com/myfolder or /myfolder instead
-		
-		flashvars.video = "demo-video.flv";
-		flashvars.preview = "demo-preview.jpg";						
-		
-	    flashvars.skin = "skin-applestyle.swf";
-		flashvars.skincolor = "0x2c8cbd";
-		flashvars.skinscalemaximum = "1";				
-	
-		flashvars.captions = "demo-captions.xml";
-		
+	var playervars = {    
+		contentpath: "../flvplayer/content",
+		video: "demo-video.flv",
+		preview: "demo-preview.jpg",							
+	        skin: "skin-applestyle.swf",
+		skincolor: "0x2c8cbd"
 		// ...
-		//see documentation for all the parameters
+		//see documentation for all the parameters		
+	};	
+  			
+		var params = { scale: "noscale", allowfullscreen: "true", salign: "tl", bgcolor: "#ffffff"};  	
+		var attributes = { align: "left", base: "." };
 		
-		
-		/* end */		
-					
-		var params = {};
-			params.scale = "noscale";
-			params.allowfullscreen = "true";
-			params.salign = "tl";
-		
-		var attributes = {};
-			attributes.align = "left";   
-			attributes.base = ".";
-		
-	/* embed flv player */			
-	// adapt the path to flvplayer.swf and expressInstall.swf
-	// adapt the display size of the flash file	
-	swfobject.embedSWF("../flvplayer/flvplayer.swf", "videoPlayer", "650", "530", "9.0.28", "../flvplayer/expressInstall.swf", flashvars, params, attributes);
-	/* end */	
-	
+	swfobject.embedSWF("../flvplayer/flvplayer.swf", "videoCanvas", "500", "450", "9.0.28", "../flvplayer/expressInstall.swf", playervars, params, attributes);
+         
+		// Playlist
 </script>
 }}}
 
 
 HTML body:
 {{{
-<div id="videoPlayer" style="margin:0px">
+	<div id="videoCanvas" style="margin:0px">
 	
 	    <p>This content requires the Adobe Flash Player.</p>
 
