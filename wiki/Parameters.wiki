@@ -2,8 +2,8 @@
 
 == Embed SWF ==
 
-|| *parameter* || *short description* || *example* ||
-|| contentpath || ... || ... ||
+|| *parameter* || *short description* || *example* || *default* ||
+|| contentpath || This is an important property. It contains the URL or path to all the files that belong to the content (video, preview, preroll and captions files). Note: Don't place a Slash at the end, it is automatically added! || `http://www.video-flash.de/flvplayer/content` or `/flvplayer/content`|| - ||
 
 == Content ==
 
