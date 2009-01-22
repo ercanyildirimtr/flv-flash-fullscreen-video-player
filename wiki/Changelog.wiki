@@ -3,7 +3,7 @@
 
 = Changelog for 1.9.7b =
 
-- Internet Explorer 7 (IE7) problem -> Fixed a bug in the HTML templates. The flashvar "base" was in attributes (wrong), now it's in params (correct).
+- Internet Explorer 7 (IE7) problem -> Fixed a bug in the HTML templates. The option "base" was in attributes (wrong), now it's in params (correct).
 
 = Changelog for 1.9.7 =
 
