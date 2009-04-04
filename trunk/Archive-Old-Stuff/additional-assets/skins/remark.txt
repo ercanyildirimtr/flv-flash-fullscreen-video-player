@@ -1,1 +1,0 @@
-Just copy the skins you like in the "flvplayer" folder and integrate them by using the "skin" parameter.
