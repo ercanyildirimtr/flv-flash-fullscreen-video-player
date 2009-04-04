@@ -1,0 +1,58 @@
+Changelog (1.9.7):
+         
+              
+
+** playerpath **
+The parameter "playerpath" isn’t required any more. It’s optional now and only necessary if you use the FLVPlayer from ActionScript. 
+
+Instead the "base" parameter of SWFObject is set to "." so the Player automatically knows its location (see http://www.yswfblog.com/blog/2008/08/11/all-your-base-are-belong-to-us/)
+
+** End screen**
+A new end screen has been introduced. The default version shows a button with replay symbol.
+If you want to have a custom ending: The corresponding parameter is called "ending". You can find the flash template in "src/endings". 
+                 
+** Keyboard control**
+The player can be controled with some keyboard shortcuts. 
+- space bar: play or pause the video
+- right/left arrow: fast-forwar/rewind the video             
+
+** New JavaScript Method and Playlists **
+A new function (updatePlayer) has been created that can be called from JavaScript.
+So you can replace the content of the video player dynamically. You can also create playlists in HTML.
+An example can be found in the download.      
+   
+** skinScaleMaximum **
+The scale factor of the 
+However, if you have performance problems in fullscreen mode, set it to 4.5 (this is the default value of the FLV Playback component).  
+
+** volume **
+There’s a new parameter called "volume". Default is 1 (=maximum), 0 equates to no sound.    
+
+** context menu **
+The standard context menu (right click on the player) has been replaced with a custom one.
+
+** Subfolders for deploying **
+I’ve introduced subfolders in the "flvplayer" folder.
+- buttonoverlays
+- endings
+- preloaders
+- skins      
+
+** Subfolders for sources **
+Analogous the deploy folder, the sources have also been restructured.                         
+
+** Additional skins moved **
+I’ve moved the additional skins to the new subfolder "flvplayer/skins" where you can access them directly using the "skin" parameter.    
+
+** Use the player in AS3 **
+For Flash Developers: The Player can be instantiated and used in ActionScript. Removed some bugs.
+               
+** HTML templates **
+Some small changes: 
+"flashvars" is now "playervars"
+"videoPlayer" is now "videoCanvas" 
+
+** SWFObject 2.1 **
+Updated SWFObject to 2.1
+
+                            
