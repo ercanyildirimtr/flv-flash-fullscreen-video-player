@@ -13,9 +13,9 @@
 	var playervars = {    
 		contentpath: "../flvplayer/content",
 		video: "demo-video.flv",
-		preview: "demo-preview.jpg",							
-	    skin: "skin-applestyle.swf",
-		skincolor: "0x2c8cbd"
+		preview: "",							
+	    skin: "",
+		skincolor: ""
 		// ...
 		//see documentation for all the parameters		
 	};	
@@ -30,25 +30,44 @@
 		window.onload = function() {     
 					document.getElementById("video1").onclick = function() {  		
 						var player = swfobject.getObjectById("videoCanvas");  													    
-  						playervars.video = "demo-video.flv";
-						playervars.skincolor = "0x2c8cbd" ,
+  						playervars.video = "demo-video.flv";    
+  						playervars.preview = "";
+						playervars.skincolor = "";     
+						playervars.skin = "";   						
  						player.updatePlayer(playervars);					
 					}; 
 					document.getElementById("video2").onclick = function() {  		
 						var player = swfobject.getObjectById("videoCanvas");  													    
-  						playervars.video = "demo-ad.flv";
-						playervars.autoplay = "true";
-						playervars.skincolor = "0x009900" ,
+  						playervars.video = "demo-video.flv";    
+  						playervars.preview = "demo-preview.jpg";  
+						playervars.skincolor = "0xE3004E";    
+						playervars.skin = "";						
  						player.updatePlayer(playervars);					
-					};
+					};     
 					document.getElementById("video3").onclick = function() {  		
 						var player = swfobject.getObjectById("videoCanvas");  													    
-  						playervars.video = "demo-video.mp4";
- 						playervars.preview = "";
-						playervars.autoplay = "false";
-						playervars.skincolor = "0xFF0000" ,
+  						playervars.video = "demo-video.flv";    
+  						playervars.preview = "demo-preview.jpg";  
+						playervars.skincolor = "0xE3004E";    
+						playervars.skin = "skin-play-seek-mute-vol.swf";						
  						player.updatePlayer(playervars);					
-					};										  
+					};					
+					document.getElementById("video4").onclick = function() {  		
+						var player = swfobject.getObjectById("videoCanvas");  													    
+  						playervars.video = "demo-video.flv";    
+  						playervars.preview = "demo-preview.jpg";
+						playervars.skincolor = "0x00A0E3";
+						playervars.skin = "skin-applestyle.swf";
+ 						player.updatePlayer(playervars);					
+					};	  
+					document.getElementById("video5").onclick = function() {  		
+						var player = swfobject.getObjectById("videoCanvas");  													    
+  						playervars.video = "demo-video.flv";    
+  						playervars.preview = "";
+						playervars.skincolor = "0x000000";
+						playervars.skin = "skin-videoflash.swf";
+ 						player.updatePlayer(playervars);					
+					};					  								  
 			
 				};
 		
@@ -85,26 +104,45 @@
 	<td colspan="5"><em>FLV Flash Fullscreen Video Player</em></td>
 	</tr>
 	</tfoot>
-	
-	<tbody>
+	                 
+	<tbody>   
+		
 	<tr id="video1">
-	<td>Video Number One</td>
-	<td>This is the first video.</td>
+	<td>Standard</td>
+	<td>Nothing customized.</td>
 	<td>01:30</td>  
 	<td><button>Play</button></td>
-	</tr>
+	</tr>      
+	
 	<tr id="video2">
-	<td>Video Number Two</td>
-	<td>This is the second video.</td>
+	<td>Color and picture</td>
+	<td>Set a custom skin color and a preview picture.</td>
 	<td>01:30</td>  
 	<td><button>Play</button></td>   	
-	</tr>
+	</tr> 
+	
 	<tr id="video3">
-	<td>Video Number Three</td>
-	<td>This is the third video.</td>
+	<td>Layout of standard skin</td>
+	<td>9 different button layouts (combinations of volume, mute, seek, fullscreen, captions, etc.) included</td>
+	<td>01:30</td>  
+	<td><button>Play</button></td>   	
+	</tr>	
+	   
+	
+	<tr id="video4">
+	<td>Skin &quot;apple-style&quot;</td>
+	<td>Nice slim skin included in the download. A special version of this skin for live streaming is also available.</td>
+	<td>01:30</td>  
+	<td><button>Play</button></td>   	
+	</tr> 
+	
+	<tr id="video5">
+	<td>Skin &quot;video-flash&quot;</td>
+	<td>A black and yellow skin included in the download.</td>
 	<td>01:30</td>  
 	<td><button>Play</button></td>   	
 	</tr>
+		
 	</tbody>
 	</table>
     </div>
