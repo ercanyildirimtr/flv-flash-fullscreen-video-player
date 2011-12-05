@@ -48,8 +48,8 @@ HTML head:
 		//see documentation for all the parameters		
 	};	
   			
-		var params = { scale: "noscale", allowfullscreen: "true", salign: "tl", bgcolor: "#ffffff"};  	
-		var attributes = { align: "left", base: "." };
+		var params = { scale: "noscale", allowfullscreen: "true", salign: "tl", bgcolor: "#ffffff", base: "." };  	
+		var attributes = { align: "left"};
 		
 	swfobject.embedSWF("../flvplayer/flvplayer.swf", "videoCanvas", "500", "450", "9.0.28", "../flvplayer/expressInstall.swf", playervars, params, attributes);
          
